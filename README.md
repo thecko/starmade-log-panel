@@ -8,7 +8,7 @@ Logstash will read, pre-process and then store the log lines into ElasticSearch.
 
 # Logstash #
 
-"Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). Speaking of searching, logstash comes with a web interface for searching and drilling into all of your logs."
+> Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). Speaking of searching, logstash comes with a web interface for searching and drilling into all of your logs.
 
  - Prerequisites: Java
  - Official Site: http://logstash.net/
