@@ -6,6 +6,13 @@ To achieve this we will use the combination of three software solutions: Logstas
 
 Logstash will read, pre-process and then store the log lines into ElasticSearch. Then, Kibana will read the data from ElasticSearch and we will be able to create several Dashboard to visualize the data. For example, we will make a "Chat Dashboard" where we will be able to read and filter the players conversations, ideal to resolve disputes between players.
 
+# Known Issues #
+
+ - The multiline codec it's not fully tested. Sometimes seems that the multiline entries (like java exceptions) show the timestamp on every line.
+ - Further investigation on event types. Some of them seem inconsistent, some will need exceptions. For example there is a chat message with "Server(0) initializing data from network object XXXX" content and it's not a real chat entry.
+ - I am using Kibana 3, version 4 was not released when I have done my tests.
+ - Installation instructions only for CentOS, it could be good to look for installation guides and link to them.
+
 # Logstash #
 
 > Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). Speaking of searching, logstash comes with a web interface for searching and drilling into all of your logs.
@@ -152,3 +159,7 @@ You will see the welcome screen, you will find a link to the Logstash Dashboard 
 In the <code>/kibana/</code> folder you will find some Dashboard I have made that I find usefull to monitor my server. Feel free to make any pull request with your dashboards.
 
 ## Chat Search ##
+
+This Dashboard will show a table with the timestamp and the message of all the "chat" type events from the last two months.
+
+If you need to use it to look for an specific conversation, you need to go to "Filtering" and with the (+) icon you can add new filters. For example, you may want to add a "Must" filter with "Query" value like "message:bitch" to look for all the log entries that contains the "bitch" sequence in the "message" field.
